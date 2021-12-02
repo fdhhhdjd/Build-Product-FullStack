@@ -1,0 +1,26 @@
+GET http://localhost:5000/products
+
+###
+GET http://localhost:5000/products/8
+
+###
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "title": "tai",
+    "price": 100
+}
+
+###
+DELETE http://localhost:5000/products/6
+
+###
+PATCH  http://localhost:5000/products/20
+Content-Type: application/json
+
+{
+    "title": "product34234234",
+    "price": 100
+}
+
