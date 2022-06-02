@@ -1,12 +1,12 @@
-import express from "express";
-import db from "./config/database.js";
-import productRoutes from "./routes/route.js";
-import cors from "cors";
-import dotenv from "dotenv";
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
 dotenv.config({ path: ".env" });
+const productRoutes = require("./Routes/route");
+const db = require("./config/database");
 const app = express();
 try {
-  await db.authenticate();
+  db.authenticate();
   console.log("Database connected...");
 } catch (error) {
   console.error("Connection error:", error);
