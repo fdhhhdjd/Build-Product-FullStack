@@ -14,7 +14,7 @@ try {
 app.get("/", (req, res) => {
   res.send({
     status: 200,
-    msg: "welcome tai heo fa",
+    msg: "welcome tai heo fa ^-^",
     success: true,
   });
 });
