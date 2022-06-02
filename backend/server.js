@@ -2,6 +2,8 @@ import express from "express";
 import db from "./config/database.js";
 import productRoutes from "./routes/route.js";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config({ path: ".env" });
 const app = express();
 try {
   await db.authenticate();
