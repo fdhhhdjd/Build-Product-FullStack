@@ -12,7 +12,11 @@ try {
   console.error("Connection error:", error);
 }
 app.get("/", (req, res) => {
-  res.send("welcome tai heo fa");
+  res.send({
+    status: 200,
+    msg: "welcome tai heo fa",
+    success: true,
+  });
 });
 app.use(cors());
 app.use(express.json());
