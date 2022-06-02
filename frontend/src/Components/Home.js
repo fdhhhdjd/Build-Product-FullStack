@@ -8,6 +8,7 @@ const Home = () => {
   const GetProduct = async () => {
     const response = await axios.get("http://localhost:5000/products");
     setData(response.data);
+    console.log(response);
   };
 
   const DeleteProduct = async (id) => {
@@ -38,7 +39,7 @@ const Home = () => {
           <tbody>
             {data &&
               data
-                .sort((a, b) => (a.title < b.title ? -1 : 1))
+                ?.sort((a, b) => (a.title < b.title ? -1 : 1))
                 .map((item, index) => {
                   return (
                     <tr key={index}>

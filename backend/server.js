@@ -9,9 +9,9 @@ try {
 } catch (error) {
   console.error("Connection error:", error);
 }
-// app.get("/", (req, res) => {
-//   res.send("welcome tai heo fa");
-// });
+app.get("/", (req, res) => {
+  res.send("welcome tai heo fa");
+});
 app.use(cors());
 app.use(express.json());
 app.use("/products", productRoutes);
