@@ -3,17 +3,23 @@ import "../Styles/Home.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Route } from "../ApiRoute/ApiRoute";
+
 const Home = () => {
   const [data, setData] = useState([]);
   const GetProduct = async () => {
+<<<<<<< HEAD
     const response = await axios.get("http://18.138.235.4:5000/products");
+=======
+    const response = await axios.get(`${Route}/products`);
+>>>>>>> 607d995bf9abec72efc7b0878423a8d50b2b3769
     setData(response.data);
     console.log(response);
   };
 
   const DeleteProduct = async (id) => {
     if (window.confirm("Are you sure you want to delete this product ?")) {
-      await axios.delete(`http://localhost:5000/products/${id}`);
+      await axios.delete(`${Route}/products/${id}`);
       toast.success("Product deleted success");
       GetProduct();
     } else {

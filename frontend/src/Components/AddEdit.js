@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import "../Styles/AddEdit.css";
 import { toast } from "react-toastify";
+import { Route } from "../ApiRoute/ApiRoute";
 const initialState = {
   title: "",
   price: "",
@@ -18,14 +19,23 @@ const AddEdit = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!title && !price) return toast.error("Please Enter Input");
     if (!id) {
+<<<<<<< HEAD
       await axios.post("http://18.138.235.4:5000/products", {
+=======
+      await axios.post(`${Route}/products`, {
+>>>>>>> 607d995bf9abec72efc7b0878423a8d50b2b3769
         title: title,
         price: price,
       });
       toast.success("Add Product Successful !");
     } else {
+<<<<<<< HEAD
       await axios.patch(`http://18.138.235.4:5000/products/${id}`, {
+=======
+      await axios.patch(`${Route}/products/${id}`, {
+>>>>>>> 607d995bf9abec72efc7b0878423a8d50b2b3769
         title: title,
         price: price,
       });
@@ -34,9 +44,12 @@ const AddEdit = () => {
 
     Navigate("/");
   };
-  console.log(id, "oke");
   const getProductId = async (id) => {
+<<<<<<< HEAD
     const responsive = await axios.get(`http://18.138.235.4:5000/products/${id}`);
+=======
+    const responsive = await axios.get(`${Route}/products/${id}`);
+>>>>>>> 607d995bf9abec72efc7b0878423a8d50b2b3769
 
     setState({ ...responsive.data });
   };
