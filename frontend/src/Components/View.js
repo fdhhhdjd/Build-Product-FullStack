@@ -6,7 +6,7 @@ const View = () => {
   const [user, setUser] = useState([]);
   const { id } = useParams();
   const getProductDetail = async (id) => {
-    const product = await axios.get(`http://localhost:5000/products/${id}`);
+    const product = await axios.get(`http://18.138.235.4:5000/products/${id}`);
     setUser({ ...product.data });
     console.log({ ...product });
   };

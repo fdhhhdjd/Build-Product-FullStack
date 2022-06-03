@@ -19,13 +19,13 @@ const AddEdit = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!id) {
-      await axios.post("http://localhost:5000/products", {
+      await axios.post("http://18.138.235.4:5000/products", {
         title: title,
         price: price,
       });
       toast.success("Add Product Successful !");
     } else {
-      await axios.patch(`http://localhost:5000/products/${id}`, {
+      await axios.patch(`http://18.138.235.4:5000/products/${id}`, {
         title: title,
         price: price,
       });
@@ -36,7 +36,7 @@ const AddEdit = () => {
   };
   console.log(id, "oke");
   const getProductId = async (id) => {
-    const responsive = await axios.get(`http://localhost:5000/products/${id}`);
+    const responsive = await axios.get(`http://18.138.235.4:5000/products/${id}`);
 
     setState({ ...responsive.data });
   };

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const Home = () => {
   const [data, setData] = useState([]);
   const GetProduct = async () => {
-    const response = await axios.get("http://localhost:5000/products");
+    const response = await axios.get("http://18.138.235.4:5000/products");
     setData(response.data);
     console.log(response);
   };
