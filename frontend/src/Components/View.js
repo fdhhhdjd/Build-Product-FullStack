@@ -2,11 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../Styles/View.css";
+import { Route } from "../ApiRoute/ApiRoute";
+
 const View = () => {
   const [user, setUser] = useState([]);
   const { id } = useParams();
   const getProductDetail = async (id) => {
-    const product = await axios.get(`http://localhost:5000/products/${id}`);
+    const product = await axios.get(`${Route}/products/${id}`);
     setUser({ ...product.data });
     console.log({ ...product });
   };

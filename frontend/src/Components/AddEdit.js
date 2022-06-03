@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import "../Styles/AddEdit.css";
 import { toast } from "react-toastify";
+import { Route } from "../ApiRoute/ApiRoute";
 const initialState = {
   title: "",
   price: "",
@@ -18,14 +19,15 @@ const AddEdit = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!title && !price) return toast.error("Please Enter Input");
     if (!id) {
-      await axios.post("http://localhost:5000/products", {
+      await axios.post(`${Route}/products`, {
         title: title,
         price: price,
       });
       toast.success("Add Product Successful !");
     } else {
-      await axios.patch(`http://localhost:5000/products/${id}`, {
+      await axios.patch(`${Route}/products/${id}`, {
         title: title,
         price: price,
       });
@@ -34,9 +36,8 @@ const AddEdit = () => {
 
     Navigate("/");
   };
-  console.log(id, "oke");
   const getProductId = async (id) => {
-    const responsive = await axios.get(`http://localhost:5000/products/${id}`);
+    const responsive = await axios.get(`${Route}/products/${id}`);
 
     setState({ ...responsive.data });
   };
